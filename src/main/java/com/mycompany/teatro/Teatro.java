@@ -28,31 +28,18 @@ public class Teatro {
         nuevo.setNombre(nombre);
         nuevo.setGenero(genero);
         nuevo.setSiguiente(nuevo);
+        Nodoscirculares temporal = inicio;
         
         if(inicio==null){
-            JOptionPane.showMessageDialog(null, "La lista esta vacia");   
-            
+            JOptionPane.showMessageDialog(null, "Hola Bienvenido eres el primer en llegar");   
                inicio=nuevo;
-        
         }else{
-            
-          nuevo.setSiguiente(inicio);
-          
-          inicio.setSiguiente(nuevo);
-          
-          inicio=nuevo;     
-        
+            while(temporal != inicio){
+                temporal = temporal.getSiguiente();
+            }
+            temporal.setSiguiente(nuevo);
+            nuevo.setSiguiente(inicio);
         }
-        
-        
-        
-        
-        
-        
-        
-        
-    
-    
     }
     
     public void imprimir(){        
@@ -62,37 +49,20 @@ public class Teatro {
     
     }
     else{
-        
         do{       
-              JOptionPane.showMessageDialog(null, "Documento "+
-                      temporal.getDocumento()+" Nombre " + temporal.getNombre() +" Genero "+ temporal.getGenero()
-                     );
+                JOptionPane.showMessageDialog(null, "Documento "+
+                    temporal.getDocumento()+" Nombre " + temporal.getNombre() +" Genero "+ temporal.getGenero()
+                );
               
-              temporal=temporal.getSiguiente();       
+            temporal=temporal.getSiguiente();       
         
         }while(temporal!=inicio);
-    
-    
-    
     }
-
-
-    
-        
-        
-        
-        }   
+}   
     
     
     public void atender(int nboletas){
-        
-           
-        
-        
-        
-     
-    
-    
+        JOptionPane.showMessageDialog(null, "entraste");
     }
     
     

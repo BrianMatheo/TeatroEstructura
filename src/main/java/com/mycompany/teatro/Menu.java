@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 public class Menu extends javax.swing.JFrame {
 
    Teatro objlista=new Teatro();
-   
    int numeroboletas;
    
     public Menu() {
@@ -126,36 +125,30 @@ public class Menu extends javax.swing.JFrame {
 
 
 objlista.solicitarTurno(JOptionPane.showInputDialog(" Nombre "), JOptionPane.showInputDialog(" Documento "), JOptionPane.showInputDialog(" Genero "));
-        
-        
-        
-        
-        
     }//GEN-LAST:event_solicitarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
         objlista.imprimir();
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroActionPerformed
-      
-       numeroboletas= Integer.parseInt(JOptionPane.showInputDialog(" Diga el numero de boletas a vender "));
-        
-        
-        
+       
+       numeroboletas += (numeroboletas = Integer.parseInt(JOptionPane.showInputDialog(" Diga el numero de boletas a vender ")));
     }//GEN-LAST:event_numeroActionPerformed
 
     private void atenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atenderActionPerformed
-       
-        
         int nuboletas= Integer.parseInt(JOptionPane.showInputDialog(" Diga el numero de boletas a comprar "));
-        
-        
-        
-        
+        if(nuboletas<=3){
+                numeroboletas -= nuboletas;
+            if(nuboletas<=numeroboletas){
+                objlista.atender(nuboletas);
+            }else{
+                numeroboletas+=nuboletas;
+                JOptionPane.showMessageDialog(null, "solo quedan " + numeroboletas + " no puedes comprar");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "cantidad de boletas superior al debido");
+        }
     }//GEN-LAST:event_atenderActionPerformed
 
     /**
